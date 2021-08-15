@@ -9,7 +9,7 @@
     max-height: auto;
     display: grid;
     grid-template-columns: repeat(11, 1fr);
-    grid-template-rows: repeat(70, 140px);
+    grid-template-rows: repeat(2, 140px);
 }
 div{
     text-align: center;
