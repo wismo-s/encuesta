@@ -5,25 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>resolucion de la encuesta</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <h1>soluciones de la encuesta en la consola</h1>
+    <input id="cantidad" type="text">
+    <button type="button" onclick="NumeroDePedidos()">mandar</button>
+    <div id="tabla">
+        <div>numero de encuestado</div>
+        <div>1 ¿Qué parentesco tiene con el estudiante encuestador?</div>
+        <div>2 ¿Qué edad tiene usted?</div>
+        <div>3 ¿Cuál es su género?</div>
+        <div>4 ¿Estudia o estudió en Fe y Alegría N° 2?</div>
+        <div>5 ¿Cuántos años ha estudiado en Fe y Alegría N° 2</div>
+        <div>6 ¿Por qué motivo estudia/ó en Fe y Alegría 2?</div>
+        <div>7 ¿Conoce algún caso de discriminación en la I.E. FyA 2?</div>
+        <div>8 ¿Cuántos de estos casos de discriminación ha evidenciado?</div>
+        <div>9 ¿Estando en el colegio te has sentido discriminado por tus compañeros?</div>
+        <div>10 De acuerdo a su experiencia, entre qué edades se encuentran con mayor frecuencia las víctimas de discriminación:</div>
+    </div>
     <script>
-
+        let contenedor = document.getElementById('tabla');
+        function AnadirDiv(dato) {
+            let posision = contenedor.lastChild;
+            let div = document.createElement('div')
+            div.textContent = `${dato}`
+            contenedor.insertAdjacentElement("beforeend", div);
+        }
         function experiencia() {
             let pregunta10 = Ramdom(0, 4);
             switch (pregunta10) {
                 case 0:
-                    console.log('1 a 10 años');
+                    AnadirDiv('1 a 10 años');
                 break;
                 case 1:
-                    console.log('11 a 20 años');
+                    AnadirDiv('11 a 20 años');
                 break;
                 case 2:
-                    console.log('21 a 30 año');
+                    AnadirDiv('21 a 30 año');
                 break;
                 case 3:
-                    console.log('31 a 40 años');
+                    AnadirDiv('31 a 40 años');
                 break;
             }
         }
@@ -31,71 +53,72 @@
             let pregunta6 = Ramdom(0, 4);
             switch (pregunta6) {
                 case 0:
-                    console.log('Nunca');
+                    AnadirDiv('Nunca');
                 break;
                 case 1:
-                    console.log('A veces');
+                    AnadirDiv('A veces');
                 break;
                 case 2:
-                    console.log('Casi siempre');
+                    AnadirDiv('Casi siempre');
                 break;
                 case 3:
-                    console.log('Siempre');
+                    AnadirDiv('Siempre');
                 break;
             }
         }
         function cuntoHasVsito() {
             let numerio =  Ramdom(1, 8)
-            console.log(numerio);
+            AnadirDiv(numerio);
         }
         function discriminacion() {
             let pregunta7 = Ramdom(0, 2);
             if (pregunta7 == 0) {
-                console.log(`si`);
+                AnadirDiv(`si`);
             }else {
-                console.log('no');
+                AnadirDiv('no');
             }
         }
         function elegioFe() {
             let pregunta6 = Ramdom(0, 5);
             switch (pregunta6) {
                 case 0:
-                    console.log('Por el fortalecimiento en valores que desarrolla la Institución.');
+                    AnadirDiv('Por el fortalecimiento en valores que desarrolla la Institución.');
                 break;
                 case 1:
-                    console.log('Por el buen de nivel de avance y desarrollo pedagógico de la Institución');
+                    AnadirDiv('Por el buen de nivel de avance y desarrollo pedagógico de la Institución');
                 break;
                 case 2:
-                    console.log('Por el nivel profesional de los maestros de la Institución.');
+                    AnadirDiv('Por el nivel profesional de los maestros de la Institución.');
                 break;
                 case 3:
-                    console.log('Por el orden, la limpieza y la buena infraestructura.');
+                    AnadirDiv('Por el orden, la limpieza y la buena infraestructura.');
                 break;
                 case 4:
-                    console.log('Porque me corresponde por la zona en que vivo.');
+                    AnadirDiv('Porque me corresponde por la zona en que vivo.');
                 break;
             }
         }
         function colegio() {
             let pregunta4 = Ramdom(0, 2);
             if (pregunta4 == 0) {
-                console.log(`si`);
-                console.log(`${Ramdom(0, 6)} años`) 
+                AnadirDiv(`si`);
+                AnadirDiv(`${Ramdom(0, 6)} años`) 
             }else {
-                console.log('no');
+                AnadirDiv('no');
+                AnadirDiv(` -----`)
             }
         }
         function genero() {
             let pregunta3 = Ramdom(0, 2);
             if (pregunta3 == 0) {
-                console.log(`masculino`);
+                AnadirDiv(`masculino`);
             }else {
-                console.log('femenino');
+                AnadirDiv('femenino');
             }
         }
         function pregunta2(a, b) {
             let pregunta2 = Ramdom(a, b);
-            console.log(`${pregunta2} años cumplidos`);
+            AnadirDiv(`${pregunta2} años cumplidos`);
         }
         function Ramdom(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
@@ -105,8 +128,8 @@
                 let pregunta1 = Ramdom(0, 6);
                 switch (pregunta1) {
                     case 0:
-                        console.group(`encuestado n${i}`);
-                            console.log('Hermano/a');
+                        AnadirDiv(`encuestado n${i}`);
+                            AnadirDiv('Hermano/a');
                             pregunta2(10,28)
                             genero()
                             colegio()
@@ -118,8 +141,8 @@
                         console.groupEnd()
                     break;
                     case 1:
-                        console.group(`encuestado n${i}`);
-                            console.log('Padre/madre');
+                        AnadirDiv(`encuestado n${i}`);
+                            AnadirDiv('Padre/madre');
                             pregunta2(40, 55)
                             genero()
                             colegio()
@@ -131,8 +154,8 @@
                         console.groupEnd()
                     break;
                     case 2:
-                        console.group(`encuestado n${i}`);
-                            console.log('Abuelo/a');
+                        AnadirDiv(`encuestado n${i}`);
+                            AnadirDiv('Abuelo/a');
                             pregunta2(65,88)
                             genero()
                             colegio()
@@ -144,8 +167,8 @@
                         console.groupEnd()
                     break;
                     case 3:
-                        console.group(`encuestado n${i}`);
-                            console.log('Tío/a');
+                        AnadirDiv(`encuestado n${i}`);
+                            AnadirDiv('Tío/a');
                             pregunta2(40,55)
                             genero()
                             colegio()
@@ -157,8 +180,8 @@
                         console.groupEnd()
                     break;
                     case 4:
-                        console.group(`encuestado n${i}`);
-                            console.log('Primo/a');
+                        AnadirDiv(`encuestado n${i}`);
+                            AnadirDiv('Primo/a');
                             pregunta2(10, 27)
                             genero()
                             colegio()
@@ -170,8 +193,8 @@
                         console.groupEnd()                   
                     break;
                     case 5:
-                        console.group(`encuestado n${i}`);
-                            console.log('amigo/a');
+                        AnadirDiv(`encuestado n${i}`);
+                            AnadirDiv('amigo/a');
                             pregunta2(14,16)
                             genero()
                             colegio()
@@ -185,7 +208,13 @@
                 }
             }
         }
-        terminarEncuesta(10)
+    </script>
+    <script>
+        let numeroDeEncuestas = document.getElementById('cantidad');
+        function NumeroDePedidos() {
+            let pedidos = numeroDeEncuestas.value;
+            terminarEncuesta(pedidos)
+        }
     </script>
 </body>
 </html>
