@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resolucion de la encuesta</title>
+</head>
+<body>
+    <h1>soluciones de la encuesta en la consola</h1>
+    <script>
+
+        function experiencia() {
+            let pregunta10 = Ramdom(0, 4);
+            switch (pregunta10) {
+                case 0:
+                    console.log('1 a 10 años');
+                break;
+                case 1:
+                    console.log('11 a 20 años');
+                break;
+                case 2:
+                    console.log('21 a 30 año');
+                break;
+                case 3:
+                    console.log('31 a 40 años');
+                break;
+            }
+        }
+        function sentidoDiscriminado() {
+            let pregunta6 = Ramdom(0, 4);
+            switch (pregunta6) {
+                case 0:
+                    console.log('Nunca');
+                break;
+                case 1:
+                    console.log('A veces');
+                break;
+                case 2:
+                    console.log('Casi siempre');
+                break;
+                case 3:
+                    console.log('Siempre');
+                break;
+            }
+        }
+        function cuntoHasVsito() {
+            let numerio =  Ramdom(1, 8)
+            console.log(numerio);
+        }
+        function discriminacion() {
+            let pregunta7 = Ramdom(0, 2);
+            if (pregunta7 == 0) {
+                console.log(`si`);
+            }else {
+                console.log('no');
+            }
+        }
+        function elegioFe() {
+            let pregunta6 = Ramdom(0, 5);
+            switch (pregunta6) {
+                case 0:
+                    console.log('Por el fortalecimiento en valores que desarrolla la Institución.');
+                break;
+                case 1:
+                    console.log('Por el buen de nivel de avance y desarrollo pedagógico de la Institución');
+                break;
+                case 2:
+                    console.log('Por el nivel profesional de los maestros de la Institución.');
+                break;
+                case 3:
+                    console.log('Por el orden, la limpieza y la buena infraestructura.');
+                break;
+                case 4:
+                    console.log('Porque me corresponde por la zona en que vivo.');
+                break;
+            }
+        }
+        function colegio() {
+            let pregunta4 = Ramdom(0, 2);
+            if (pregunta4 == 0) {
+                console.log(`si`);
+                console.log(`${Ramdom(0, 6)} años`) 
+            }else {
+                console.log('no');
+            }
+        }
+        function genero() {
+            let pregunta3 = Ramdom(0, 2);
+            if (pregunta3 == 0) {
+                console.log(`masculino`);
+            }else {
+                console.log('femenino');
+            }
+        }
+        function pregunta2(a, b) {
+            let pregunta2 = Ramdom(a, b);
+            console.log(`${pregunta2} años cumplidos`);
+        }
+        function Ramdom(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        function terminarEncuesta(numeroDeEncuestados) {
+            for (let i = 0; i < numeroDeEncuestados; i++) {
+                let pregunta1 = Ramdom(0, 6);
+                switch (pregunta1) {
+                    case 0:
+                        console.group(`encuestado n${i}`);
+                            console.log('Hermano/a');
+                            pregunta2(10,28)
+                            genero()
+                            colegio()
+                            elegioFe()
+                            discriminacion()
+                            cuntoHasVsito()
+                            sentidoDiscriminado()
+                            experiencia()
+                        console.groupEnd()
+                    break;
+                    case 1:
+                        console.group(`encuestado n${i}`);
+                            console.log('Padre/madre');
+                            pregunta2(40, 55)
+                            genero()
+                            colegio()
+                            elegioFe()
+                            discriminacion()
+                            cuntoHasVsito()
+                            sentidoDiscriminado()
+                            experiencia()
+                        console.groupEnd()
+                    break;
+                    case 2:
+                        console.group(`encuestado n${i}`);
+                            console.log('Abuelo/a');
+                            pregunta2(65,88)
+                            genero()
+                            colegio()
+                            elegioFe()
+                            discriminacion()
+                            cuntoHasVsito()
+                            sentidoDiscriminado()
+                            experiencia()
+                        console.groupEnd()
+                    break;
+                    case 3:
+                        console.group(`encuestado n${i}`);
+                            console.log('Tío/a');
+                            pregunta2(40,55)
+                            genero()
+                            colegio()
+                            elegioFe()
+                            discriminacion()
+                            cuntoHasVsito()
+                            sentidoDiscriminado()
+                            experiencia()
+                        console.groupEnd()
+                    break;
+                    case 4:
+                        console.group(`encuestado n${i}`);
+                            console.log('Primo/a');
+                            pregunta2(10, 27)
+                            genero()
+                            colegio()
+                            elegioFe()
+                            discriminacion()
+                            cuntoHasVsito()
+                            sentidoDiscriminado()
+                            experiencia() 
+                        console.groupEnd()                   
+                    break;
+                    case 5:
+                        console.group(`encuestado n${i}`);
+                            console.log('amigo/a');
+                            pregunta2(14,16)
+                            genero()
+                            colegio()
+                            elegioFe()
+                            discriminacion()
+                            cuntoHasVsito()
+                            sentidoDiscriminado()
+                            experiencia()
+                        console.groupEnd()
+                    break;
+                }
+            }
+        }
+        terminarEncuesta(10)
+    </script>
+</body>
+</html>
